@@ -68,10 +68,15 @@ function App() {
       setShowScore(true);
     }
 
-    // const lastQuestion = () => {
-   
-    // };
+    
   };
+
+  const lastQuestion = () => {
+    console.log('last question')
+    setCurrentQuestion(0)
+    setScore(0)
+    setShowScore(false)
+  }
 
   return (
     <div className="app">
@@ -81,7 +86,7 @@ function App() {
           <br />
           <br />
           <br />
-          <button onClick={() => setCurrentQuestion(0)}>Try again </button>
+          <button onClick={() => lastQuestion()}>Try again </button>
         </div>
       ) : (
         <>
@@ -96,8 +101,8 @@ function App() {
             </div>
           </div>
           <div>
-            {questions[currentQuestion].anwserOptions.map((anwserOptions) => (
-              <button
+            {questions[currentQuestion].anwserOptions.map((anwserOptions, index) => (
+              <button key={Date.now()+index}
                 onClick={() => handleAnwserOptionClick(anwserOptions.isCorrect)}
               >
                 {" "}
