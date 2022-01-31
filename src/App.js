@@ -51,9 +51,62 @@ function App() {
     },
   ];
 
+
+
+
+  const anotherQuestions = [
+    {
+      questionText: "Which mountain is the highest in the world?",
+      anwserOptions: [
+        { anwserText: "Rysy", isCorrect: false },
+        { anwserText: "Mont Blanc", isCorrect: false },
+        { anwserText: "Kilimandzaro", isCorrect: false },
+        { anwserText: "Mount Everest", isCorrect: true },
+      ],
+    },
+    // {
+    //   questionText: "Who is the CEO of Facebook?",
+    //   anwserOptions: [
+    //     { anwserText: "Jeff Bezof", isCorrect: false },
+    //     { anwserText: "Elon Musk", isCorrect: false },
+    //     { anwserText: "Bill Gates", isCorrect: false },
+    //     { anwserText: "Mark Zuckerberg", isCorrect: true },
+    //   ],
+    // },
+    // {
+    //   questionText: "Which animal of the following is the most dangerous?",
+    //   anwserOptions: [
+    //     { anwserText: "Whale", isCorrect: false },
+    //     { anwserText: "Elephant", isCorrect: false },
+    //     { anwserText: "Hippo", isCorrect: false },
+    //     { anwserText: "Shark", isCorrect: true },
+    //   ],
+    // },
+    // {
+    //   questionText: "Who was the first king of Poland?",
+    //   anwserOptions: [
+    //     { anwserText: "Mieszko I", isCorrect: false },
+    //     { anwserText: "Boleslaw Chrobry", isCorrect: true },
+    //     { anwserText: "Kazimierz Wielki", isCorrect: false },
+    //     { anwserText: "Wladyslaw Jagiello", isCorrect: false },
+    //   ],
+    // },
+    // {
+    //   questionText: "Which actor plays Harry Potter?",
+    //   anwserOptions: [
+    //     { anwserText: "Tom Holland", isCorrect: false },
+    //     { anwserText: "Brad Pitt", isCorrect: false },
+    //     { anwserText: "Daniel Rupert", isCorrect: false },
+    //     { anwserText: "Daniel Radcliffe", isCorrect: true },
+    //   ],
+    // },
+  ];
+
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [showScore, setShowScore] = useState(false);
   const [score, setScore] = useState(0);
+  // const [anotherCurrentQuestion, setAnotherCurrentQuestion] = useState(0);
+  
 
   const handleAnwserOptionClick = (isCorrect) => {
     if (isCorrect) {
@@ -67,13 +120,24 @@ function App() {
     } else {
       setShowScore(true);
     }
-
-    
   };
+
+  
 
   const lastQuestion = () => {
     console.log('last question')
     setCurrentQuestion(0)
+    setScore(0)
+    setShowScore(false)
+  }
+
+  // const [secondCurrentQuestion, setSecondCurrentQuestion] = useState(0);
+  // const [secondShowScore, setSecondShowScore] = useState(false);
+  // const [secondScore, set ]
+
+  const secondQuiz = () => {
+    console.log('another quiz')
+    setCurrentQuestion(5)
     setScore(0)
     setShowScore(false)
   }
@@ -87,6 +151,8 @@ function App() {
           <br />
           <br />
           <button onClick={() => lastQuestion()}>Try again </button>
+          {/* or 
+          <button onClick={() => secondQuiz() }> Another quiz</button> */}
         </div>
       ) : (
         <>
@@ -110,6 +176,9 @@ function App() {
               </button>
             ))}
           </div>
+
+
+
         </>
       )}
     </div>
